@@ -17,15 +17,15 @@ include_once 'strumenti.php';
   <body>
     <h2>Developer</h2>
     <?php
-    $developer = new Developer('Pippo', 'Franco', 'Javascript', 'Atom');
-    $developer->stampaDipendenti();
-    $developer->framework = 'bootstrap';
-    echo 'Linguaggi: ' . $developer->linguaggi . '<br>';
-    echo 'Framework: ' . $developer->framework . '<br>';
+    $developer = new Developer('Pippo', 'Franco', 'Javascript', 'Atom', 1200); //creo un nuovo oggetto della classe developer passandogli i parametri obbligatori dichiarati nel costrutttore
+    $developer->stampaDipendenti(); //stampo le cose in comune
+    $developer->framework = 'bootstrap'; //definisco questa tipologia che non era definita da nessuna parte
+    echo 'Linguaggi: ' . $developer->linguaggi . '<br>'; //stampo i linguaggi che sono definiti nell'oggetto developer (essendo stati dichiarati nel costruttore, sono obbligatori)
+    echo 'Framework: ' . $developer->framework . '<br>'; //stampo la tipologia definita prima
      ?>
      <h2>Analisti</h2>
      <?php
-     $analista = new Analista('Brambilla', 'Fumagalli', 'SAP SD', 'SAP ERP');
+     $analista = new Analista('Brambilla', 'Fumagalli', 'SAP SD', 'SAP ERP', 1500); //stesse cose di sopra soltanto che vengono fatte per un'altra classe
      $analista->stampaDipendenti();
      $analista->settore = 'vendite';
      echo 'Licenze: ' . $analista->licenze . '<br>';
