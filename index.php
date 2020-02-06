@@ -16,27 +16,30 @@ include_once 'strumenti.php';
   </head>
   <body>
     <h2>Developer</h2>
-    <?php
+  <?php
     $developer = new Developer('Pippo', 'Franco', 'Javascript', 'Atom', 1400); //creo un nuovo oggetto della classe developer passandogli i parametri obbligatori dichiarati nel costrutttore
     $developer->stampaDipendenti(); //stampo le cose in comune
     $developer->framework = 'bootstrap'; //definisco questa tipologia che non era definita da nessuna parte
     echo 'Linguaggi: ' . $developer->linguaggi . '<br>'; //stampo i linguaggi che sono definiti nell'oggetto developer (essendo stati dichiarati nel costruttore, sono obbligatori)
     echo 'Framework: ' . $developer->framework . '<br>'; //stampo la tipologia definita prima
-    echo "RAL: " . $developer->calcolaRal(1400);
-    // try {
-    // echo calcolaRal(1400);
-    // } catch (Exception $e) {
-    // echo 'Eccezione: ' . $e->getMessage();
-    // }
-     ?>
+    try {
+      echo "RAL: " . $developer->calcolaRal(1400);
+    } catch (Exception $e) {
+      echo 'Eccezione: ' . $e->getMessage();
+    }
+  ?>
      <h2>Analisti</h2>
-     <?php
+  <?php
      $analista = new Analista('Brambilla', 'Fumagalli', 'SAP SD', 'SAP ERP', 1800); //stesse cose di sopra soltanto che vengono fatte per un'altra classe
      $analista->stampaDipendenti();
      $analista->settore = 'vendite';
      echo 'Licenze: ' . $analista->licenze . '<br>';
      echo 'Settore: ' . $analista->settore . '<br>';
-     echo "RAL: " . $developer->calcolaRal(1800);
-      ?>
+     try {
+       echo "RAL: " . $analista->calcolaRal(1800);
+     } catch (Exception $e) {
+       echo 'Eccezione: ' . $e->getMessage();
+     }
+  ?>
   </body>
 </html>
