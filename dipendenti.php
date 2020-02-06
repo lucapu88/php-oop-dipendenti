@@ -11,9 +11,9 @@
       echo 'Nome: ' . $this->nome . '<br>';
       echo 'Cognome: ' . $this->cognome . '<br>';
       echo 'Software: ' . $this->software . '<br>';
-      echo 'Stipendio (mensile lordo) €: ' . $this->stipendio . '<br>';
+      // echo 'Stipendio (mensile lordo) €: ' . $this->stipendio . '<br>';
     }
-    
+
   }
 
  ?>
