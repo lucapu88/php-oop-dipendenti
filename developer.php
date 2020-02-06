@@ -11,6 +11,7 @@
         $this->stipendio = $_salary;
         $this->linguaggi = $_progrLanguages;
     }
+    
   }
 
  ?>
