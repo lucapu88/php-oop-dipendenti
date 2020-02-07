@@ -1,11 +1,9 @@
-<!-- provate a modellizzare le classi per gestire i dipendenti di un'azienda.
-Lascio a voi le scelte architetturali, domani le valutiamo insieme
-Provate a metterci dentro la gestione di un'eccezione, ad esempio in una funzione che calcola lo stipendio -->
+
 <?php
 include_once 'dipendenti.php';
 include_once 'developer.php';
 include_once 'analisti.php';
-include_once 'strumenti.php';
+include_once 'informazioni_comuni.php';
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -17,11 +15,17 @@ include_once 'strumenti.php';
   <body>
     <h2>Developer</h2>
   <?php
-    $developer = new Developer('Pippo', 'Franco', 'Javascript', 'Atom', 1400); //creo un nuovo oggetto della classe developer passandogli i parametri obbligatori dichiarati nel costrutttore
+    $developer = new Developer('Pippo', 'Franco', 'Javascript', 'Atom'); //creo un nuovo oggetto della classe developer passandogli i parametri obbligatori dichiarati nel costrutttore
     $developer->stampaDipendenti(); //stampo le cose in comune
+    //$developer->setPrintInfo(8, 5, 8);
+    try {
+      $developer->calcolaPagaMensile(8, 5, 8);
+    } catch (Exception $e) {
+      echo 'Eccezione: ' . $e->getMessage();
+    }
+
     $developer->framework = 'bootstrap'; //definisco questa tipologia che non era definita da nessuna parte
-    echo 'Linguaggi: ' . $developer->linguaggi . '<br>'; //stampo i linguaggi che sono definiti nell'oggetto developer (essendo stati dichiarati nel costruttore, sono obbligatori)
-    echo 'Framework: ' . $developer->framework . '<br>'; //stampo la tipologia definita prima
+    echo '<p>Framework: ' . $developer->framework . '</p>'; //stampo la tipologia definita prima
     try {
       echo "RAL: " . $developer->calcolaRal(1400);
     } catch (Exception $e) {
@@ -30,11 +34,10 @@ include_once 'strumenti.php';
   ?>
      <h2>Analisti</h2>
   <?php
-     $analista = new Analista('Brambilla', 'Fumagalli', 'SAP SD', 'SAP ERP', 1800); //stesse cose di sopra soltanto che vengono fatte per un'altra classe
+     $analista = new Analista('Brambilla', 'Fumagalli', 'SAP SD', 'SAP ERP'); //stesse cose di sopra soltanto che vengono fatte per un'altra classe
      $analista->stampaDipendenti();
      $analista->settore = 'vendite';
-     echo 'Licenze: ' . $analista->licenze . '<br>';
-     echo 'Settore: ' . $analista->settore . '<br>';
+     echo '<p>Settore: ' . $analista->settore . '</p>';
      try {
        echo "RAL: " . $analista->calcolaRal(1800);
      } catch (Exception $e) {

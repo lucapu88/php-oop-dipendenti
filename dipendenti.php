@@ -8,10 +8,9 @@
       $this->cognome = $_surname;
     }
     public function stampaDipendenti() { //funzione che mi stampa le 3 variabili che hanno in comune le classi derivanti da Dipendenti
-      echo 'Nome: ' . $this->nome . '<br>';
-      echo 'Cognome: ' . $this->cognome . '<br>';
-      echo 'Software: ' . $this->software . '<br>';
-      // echo 'Stipendio (mensile lordo) €: ' . $this->stipendio . '<br>';
+      echo '<p> Nome: ' . $this->nome . '</p>';
+      echo '<p> Cognome: ' . $this->cognome . '</p>';
+      echo '<p> Software utilizzati: ' . $this->software . '</p>';
     }
 
   }
